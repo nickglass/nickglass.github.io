@@ -1,0 +1,516 @@
+.navbar {
+    display: inline-block;
+    overflow: hidden;
+    height: 10%;
+    top: 0;
+    font-family: Roboto, Arial, sans-serif;
+}
+ul {
+    list-style-type: none;
+}
+#navbar {
+    margin: 0;
+    padding: 0;
+    border-bottom: 2px solid grey;
+}
+.navbar li {
+    display: inline-block;
+    position: relative;
+}
+#logo {
+    margin-left: 20px;
+    height: 60px;
+    width: 175px;
+}
+#logo:hover { 
+    cursor: pointer;
+}
+#find_me { 
+    padding-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.use_current_location i {
+    padding-right: 5px;
+}
+.use_current_location {
+    float: left;
+    width: 100%;
+    background:#2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    cursor: pointer;
+    text-align: left;
+}
+form.address_search input[type=text] {
+    padding: 5px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 150%;
+    background:#f1f1f1;
+}
+#find_physician {
+    display: inline-block;
+    padding-top: 10px;
+    margin-left: 100px;
+    padding-right: 15%;
+}
+#find_physician:link {
+    font-size: 17px;
+    font-weight: bold;
+    color:#000066;
+    text-decoration: none;
+}
+#find_physician:visited {
+    color:#000066;
+}
+#find_physician:hover {
+    text-decoration: underline;
+} 
+#for_help {
+    /* margin-left: 10px; */
+    padding-left: 5%;
+    display: inline-block;
+    padding-top: 10px;
+} 
+#for_help_text {
+    font-size: 17px;
+    font-weight: bold;
+    color:#000066;
+    display: inline-block;
+    padding-top: 22px;
+} 
+
+
+.sidenav {
+    height: 100%; 
+    /* Full-height: remove this if you want "auto" height */
+    width: 25%; 
+    /* Set the width of the sidebar */
+    position: fixed; 
+    /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; 
+    /* Stay on top */
+    left: 0;
+    padding-left: 5px;
+    color:#000066;
+    font-family: Roboto, Arial, sans-serif;
+    background-color: white;
+    overflow-y: scroll;
+} 
+#filter_by {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+#filter_options {
+    width: 100%;
+}
+#reset_map {
+    width: 100%;
+    color: white;
+    background-color:#2196F3;
+    border-width: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#reset_map:hover {
+    cursor: pointer;
+    background-color: #0961aa;
+}
+#reset_map:active {
+    box-shadow: inset;
+}
+img {
+    margin-bottom: -3.5px;
+    padding-right: 2px;
+}
+.sidenav ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.sidenav li {
+    padding-top: 10px;
+}
+#location_checklist_line {
+    border-bottom: 2px solid grey;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+input[type = checkbox]:hover {
+    cursor: pointer;
+}
+#hospital_campuses {
+    font-weight: bold;
+} 
+#hospital_campuses_list {
+    padding-left: 25px;
+    font-size: 14px;
+    list-style-type: none;
+}
+#ambulatory_practices {
+    font-weight: bold;
+}
+#ambulatory_practices_list {
+    padding-left: 25px;
+    font-size: 14px;
+    list-style-type: none;
+}
+#specialCare_center {
+    font-weight: bold;
+} 
+#lifeRecovery_center { 
+    font-weight: bold; 
+}
+#covid_testing {
+    font-weight: bold;
+}
+#covid_testing_list {
+    padding-left: 25px; 
+    font-size: 14px; 
+    list-style-type: none;
+}
+#pharmacies { 
+    font-weight: bold; 
+} 
+#pharmacies_list { 
+    padding-left: 25px; 
+    font-size: 14px; 
+    list-style-type: none; 
+} 
+#public_transportation { 
+    font-weight: bold; 
+} 
+#public_transportation_list { 
+    padding-left: 25px; 
+    font-size: 14px;
+    list-style-type: none;
+    margin-bottom: 100px;
+}
+.location_checklist_specific:hover { 
+    cursor: pointer
+} 
+.location_sidenav, .directions_sidenav { 
+    display: none;
+
+    /* for when it IS showing... */
+    height: 100%; 
+    /* Full-height: remove this if you want "auto" height */
+    width: 25%; 
+    /* Set the width of the sidebar */
+    position: fixed; 
+    /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; 
+    /* Stay on top */
+    left: 0;
+    margin-left: 0px;
+    list-style-type: none;
+    color:#000066;
+    font-family: Roboto, Arial, sans-serif;
+    background-color: white;
+    /* overflow-y: auto; */
+    overflow-x: auto;
+}
+.location_sidenav ul, .directions_sidenav ul {
+    padding-left: 10px;
+}
+.location_sidenav_address_header {
+    margin-top: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.location_sidenav_other_info {
+    margin-top: 15px;
+}
+.location_sidenav_name_campus, .directions_sidenav_name_campus {
+    background-color: #01579b;
+    color: white;
+    margin-top: -20px;
+    margin-left: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+li.location_sidenav_name_campus i, .directions_sidenav_name_campus i {
+    float: left;
+    size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.location_sidenav_campus_getDirections, .directions_sidenav_go_campus {
+    color: white;
+    background-color: #01579b;
+    font-size: 18px;
+    border: 4px;
+    border-color: black;
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 20%;
+    text-align: center;
+}
+.location_sidenav_name_ambulatory, .directions_sidenav_name_ambulatory {
+    background-color: #0288d1;
+    color: white;
+    margin-top: -20px;
+    margin-left: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+li.location_sidenav_name_ambulatory i, .directions_sidenav_name_ambulatory i {
+    float: left;
+    size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.location_sidenav_ambulatory_getDirections, .directions_sidenav_go_ambulatory {
+    color: white;
+    background-color: #0288d1;
+    font-size: 18px;
+    border: 4px;
+    border-color: black;
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 20%;
+    text-align: center;
+}
+.location_sidenav_name_center, .directions_sidenav_name_center {
+    background-color: #0f9d58;
+    color: white;
+    margin-top: -20px;
+    margin-left: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+li.location_sidenav_name_center i, .directions_sidenav_name_center i {
+    float: left;
+    size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.location_sidenav_center_getDirections, .directions_sidenav_go_center {
+    color: white;
+    background-color: #0f9d58;
+    font-size: 18px;
+    border: 4px;
+    border-color: black;
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 20%;
+    text-align: center;
+}
+.location_sidenav_name_covid, .directions_sidenav_name_covid {
+    background-color: #c2185b;
+    color: white;
+    margin-top: -20px;
+    margin-left: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+li.location_sidenav_name_covid i, .directions_sidenav_name_covid i {
+    float: left;
+    size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.location_sidenav_covid_getDirections, .directions_sidenav_go_covid {
+    color: white;
+    background-color: #c2185b;
+    font-size: 18px;
+    border: 4px;
+    border-color: black;
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 20%;
+    text-align: center;
+}
+.location_sidenav_name_pharmacy, .directions_sidenav_name_pharmacy {
+    background-color: #e65100;
+    color: white;
+    margin-top: -20px;
+    margin-left: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+li.location_sidenav_name_pharmacy i, .directions_sidenav_name_pharmacy i {
+    float: left;
+    size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.location_sidenav_pharmacy_getDirections, .directions_sidenav_go_pharmacy {
+    color: white;
+    background-color: #e65100;
+    font-size: 18px;
+    border: 4px;
+    border-color: black;
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 20%;
+    text-align: center;
+}
+.location_sidenav_name_bus, .directions_sidenav_name_bus {
+    background-color: #9c27b0;
+    color: white;
+    margin-top: -20px;
+    margin-left: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+li.location_sidenav_name_bus i, .directions_sidenav_name_bus i {
+    float: left;
+    size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.location_sidenav_bus_getDirections, .directions_sidenav_go_bus {
+    color: white;
+    background-color: #9c27b0;
+    font-size: 18px;
+    border: 4px;
+    border-color: black;
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 20%;
+    text-align: center;
+}
+.location_sidenav_name_subway, .directions_sidenav_name_subway {
+    background-color: #673ab7;
+    color: white;
+    margin-top: -20px;
+    margin-left: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+li.location_sidenav_name_subway i, .directions_sidenav_name_subway i {
+    float: left;
+    size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.location_sidenav_subway_getDirections, .directions_sidenav_go_subway {
+    color: white;
+    background-color: #673ab7;
+    font-size: 18px;
+    border: 4px;
+    border-color: black;
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 20%;
+    text-align: center;
+}
+li.location_sidenav_name_campus i:hover, 
+li.location_sidenav_name_ambulatory i:hover, 
+li.location_sidenav_name_center i:hover, 
+li.location_sidenav_name_covid i:hover, 
+li.location_sidenav_name_pharmacy i:hover, 
+li.location_sidenav_name_bus i:hover, 
+li.location_sidenav_name_subway i:hover,
+.location_sidenav_campus_getDirections:hover,
+.location_sidenav_ambulatory_getDirections:hover,
+.location_sidenav_center_getDirections:hover,
+.location_sidenav_covid_getDirections:hover,
+.location_sidenav_pharmacy_getDirections:hover,
+.location_sidenav_bus_getDirections:hover,
+.location_sidenav_subway_getDirections:hover, 
+.directions_sidenav_name_campus i:hover, 
+.directions_sidenav_name_ambulatory i:hover, 
+.directions_sidenav_name_center i:hover, 
+.directions_sidenav_name_covid i:hover, 
+.directions_sidenav_name_pharmacy i:hover, 
+.directions_sidenav_name_bus i:hover, 
+.directions_sidenav_name_subway i:hover,
+.directions_sidenav_go_campus:hover,
+.directions_sidenav_go_ambulatory:hover,
+.directions_sidenav_go_center:hover,
+.directions_sidenav_go_covid:hover,
+.directions_sidenav_go_pharmacy:hover,
+.directions_sidenav_go_bus:hover,
+.directions_sidenav_go_subway:hover
+{
+    cursor: pointer;
+}
+.directions_sidenav_header {
+    text-decoration: underline;
+}
+.modes_of_transportation i {
+    padding-left: 5%;
+    padding-right: 5%;
+    color: #000066;
+}
+.modes_of_transportation i:hover {
+    cursor: pointer;
+    background-color: #cceeff;
+}
+.material-icons.pressed {
+    background-color: #4dc3ff;
+}
+.material-icons.pressed:hover {
+    cursor: default;
+    background-color: #4dc3ff;
+}
+/* .car_popup, .subway_popup, .walk_popup, .bike_popup, .plane_popup {
+    display: none;
+}
+input[name="car_icon"]:hover + .car_popup {
+    display: block;
+    position: absolute;
+    z-index: 999;
+    background-color: black;
+    color: white;
+    width: fit-content;
+    height: auto;
+} */
+h4 {
+    margin-bottom: 5px;
+}
+.directions_sidenav_from input, .directions_sidenav_to input {
+    margin-top: 0px;
+    width: 95%;
+}
+.switch_directions_entries {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: -25px;
+}
+.switch_directions_entries i {
+    display: inline-block;
+    font-size: 25px;
+    color: #000066;
+    border-width: 2px;
+    border-color: #000066;
+}
+.switch_directions_entries i:hover {
+    cursor: pointer;
+}
+.switch_directions_entries i:active {
+    background-color: grey;
+}
+
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 91%;
+}
+/* Make sample page fill the window. */ 
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}

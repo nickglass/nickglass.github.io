@@ -1259,9 +1259,36 @@ $(document).on("keypress", "input", function(e) {
     }
 })
 
-//TO-DO: add the necessary info to specific location sidenavs;  IN PROGRESS
-//       figure out isChecked();  DONE... BUT....
-//       ....figure out why the main sidenav cuts off the public transportation category when it's unchecked
-//       do the direction sidenav page for each location (will need to use the Google Map directions api)
-//          -figure out how to save the value that the user enters into the to/from entry field
-//       provide functionality (using google map apis) for the "use my current location"
+function sendEmail(specific) {
+    // console.log(document.getElementById(map.location[specific].name + "_step_by_step_directions").innerHTML);
+    var emailAddress = prompt("Please enter your email address.");
+    if (validateEmail(emailAddress)) {
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "blissbx10457@gmail.com",
+            Password: "Bronxoffice44*",
+            To: emailAddress,
+            From: "blissbx10457@gmail.com",
+            Subject: "Step-by-Step Directions from BronxCare's Interactive Map",
+            Body: document.getElementById(map.location[specific].name + "_step_by_step_directions").innerHTML,
+            // Body: directionsRenderer.getPanel(map.location[specific].name + "_step_by_step_directions")
+        })
+        .then(function (message) {
+            alert("Email sent successfully.")
+        });
+    }
+    else {
+        alert("Please enter a valid email address.");
+        sendEmail(specific);
+    }
+}
+
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+//TO-DO: 
+//       figure out why the main sidenav cuts off the public transportation category when it's unchecked
+//       figure out why the step by step directions cuts off the email/print/text buttons below it
+//       provide functionality for the print/email/text buttons

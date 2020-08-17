@@ -1282,13 +1282,16 @@ function sendEmail(specific) {
         sendEmail(specific);
     }
 }
-
 function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
 
+function printDirections(specific) {
+    $(map.location[specific].name + "_step_by_step_directions").addClass("printable");
+    console.log(map.location[specific].name + "_step_by_step_directions");
+    window.print();
+}
+
 //TO-DO: 
-//       figure out why the main sidenav cuts off the public transportation category when it's unchecked
-//       figure out why the step by step directions cuts off the email/print/text buttons below it
-//       provide functionality for the print/email/text buttons
+//       provide functionality for the print button

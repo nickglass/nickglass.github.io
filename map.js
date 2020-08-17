@@ -569,7 +569,10 @@ function initMap() {
                 return;
             }
             var findMeIcon = {
-                url:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Person_icon_BLACK-01.svg/75px-Person_icon_BLACK-01.svg.png"
+                url:"http://getdrawings.com/free-icon/you-are-here-icon-69.png",
+                scaledSize: new google.maps.Size(60, 60),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(30, 60)
             };
             if (previousFindMeMarker != null) {
                 previousFindMeMarker.setMap(null);
@@ -603,51 +606,6 @@ function initMap() {
             }
         }
     })
-
-    // this will console.log() the new location that the user has just chosen for the autocomplete
-    // fromSearchBox[0].addListener("place_changed", function() {
-    //     console.log(fromInput[0].value);
-    // })
-
-    // $(fromInput[0]).on("input propertychange paste autocompleteselect", function() {
-    //     console.log("hi");
-    //     console.log(fromInput[0].value);
-    //     console.log(fromSearchBox[0].getPlace());
-    // });
-
-    // fromInput[0].addEventListener("input", function() {
-    //     console.log(fromInput[0].value);
-    // })
-
-    // var place = [];
-    // // for (var i = 0; i < map.location.length; i++) {
-    //     $(fromInput[0]).on("input propertychange paste autocompleteselect", function() {
-    //         console.log(fromInput[0].value);
-    //         place[0] = fromSearchBox[0].getPlace();
-    //         console.log(place[0]);
-    //         if (place[0].length == 0) {
-    //             return "No place selected.";
-    //         }
-    //     })
-    // }
-    // map.addListener("bounds_changed", function() {
-    //     fromSearchBox0.setBounds(map.getBounds());
-    //     toSearchBox0.setBounds(map.getBounds());
-    // });
-    // fromSearchBox0.addListener("place_changed", function() {
-    //     var place = fromSearchBox0.getPlace();
-    //     console.log(place);
-    //     if (place.length == 0) {
-    //         return "No place selected.";
-    //     }
-    // })
-    // toSearchBox0.addListener("place_changed", () => {
-    //     var place = toSearchBox0.getPlace();
-    //     if (place.length == 0) {
-    //         return "No place selected.";
-    //     }
-    // })
-    
 
     directionsService = new google.maps.DirectionsService();
     directionsRenderer = new google.maps.DirectionsRenderer();
@@ -702,7 +660,10 @@ function geolocation() {
                 geolocationLat = position.coords.latitude;
                 geolocationLng = position.coords.longitude;
                 var geolocationIcon = {
-                    url:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Person_icon_BLACK-01.svg/75px-Person_icon_BLACK-01.svg.png"
+                    url:"http://getdrawings.com/free-icon/you-are-here-icon-69.png",
+                    scaledSize: new google.maps.Size(60, 60),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(30, 60)
                 };
                 geolocation_marker = new google.maps.Marker({
                     position: currentPosition,
@@ -843,10 +804,10 @@ var practicesArray = [
         name: "center_for_comprehensive_care",
         type: "milstein_building"
     }, {
-        name: "neurology",
+        name: "oncology",
         type: "milstein_building"
     }, {
-        name: "oncology",
+        name: "neurology",
         type: "milstein_building"
     }, {
         name: "rehab",
@@ -1293,7 +1254,8 @@ function resetDirectionsEntryFields(specific) {
 
 $(document).on("keypress", "input", function(e) {
     if (e.which == 13) {
-        alert("Please click on one of the autocomplete-suggested locations instead.");
+        alert("Please click on one of the autocomplete-suggested locations in order to ensure an accurate result.");
+        return false;
     }
 })
 

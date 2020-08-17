@@ -569,7 +569,7 @@ function initMap() {
                 return;
             }
             var findMeIcon = {
-                url:"http://getdrawings.com/free-icon/you-are-here-icon-69.png",
+                url:"https://getdrawings.com/free-icon/you-are-here-icon-69.png",
                 scaledSize: new google.maps.Size(60, 60),
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(30, 60)
@@ -660,7 +660,7 @@ function geolocation() {
                 geolocationLat = position.coords.latitude;
                 geolocationLng = position.coords.longitude;
                 var geolocationIcon = {
-                    url:"http://getdrawings.com/free-icon/you-are-here-icon-69.png",
+                    url:"https://getdrawings.com/free-icon/you-are-here-icon-69.png",
                     scaledSize: new google.maps.Size(60, 60),
                     origin: new google.maps.Point(0, 0),
                     anchor: new google.maps.Point(30, 60)

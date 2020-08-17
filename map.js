@@ -1277,6 +1277,9 @@ function sendEmail(specific) {
             alert("Email sent successfully.")
         });
     }
+    else if (emailAddress === null) {
+        return;
+    }
     else {
         alert("Please enter a valid email address.");
         sendEmail(specific);

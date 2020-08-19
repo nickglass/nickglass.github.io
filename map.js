@@ -554,15 +554,15 @@ function initMap() {
     findMeInput = document.getElementById("enterAddressHere");
     var searchBox = new google.maps.places.SearchBox(findMeInput);
     var previousFindMeMarker;
-    map.addListener("bounds_changed", () => {
+    map.addListener("bounds_changed", function() {
         searchBox.setBounds(map.getBounds());
     });
-    searchBox.addListener("places_changed", () => {
+    searchBox.addListener("places_changed", function() {
         var places = searchBox.getPlaces();
         if (places.length == 0) {
             return;
         }
-        places.forEach(place => {
+        places.forEach(function(place) {
             if (!place.geometry) {
                 var findMeInfoWindow = new google.maps.InfoWindow();
                 findMeInfoWindow.setContent("Returned place contains no geometry");
@@ -624,7 +624,7 @@ function calculateAndDisplayRoute(locationNumber) {
             },
             travelMode: pressedModeOfTransportation()
         },
-        (response, status) => {
+        function(response, status) {
             if (status === "OK") {
                 directionsRenderer.setPanel(document.getElementById(map.location[locationNumber].name + "_step_by_step_directions"));
                 directionsRenderer.setDirections(response);
@@ -652,7 +652,7 @@ function geolocation() {
     }
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-            position => {
+            function(position) {
                 const currentPosition = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude,
@@ -675,7 +675,7 @@ function geolocation() {
                 map.setZoom(16);
                 geocodeLatLng(geocoder);
             },
-            () => {
+            function() {
                 handleLocationError(true, new google.maps.InfoWindow(), map.center);
             }
         );
@@ -698,7 +698,7 @@ function geocodeLatLng(geocoder) {
         lat: geolocationLat,
         lng: geolocationLng
     };
-    geocoder.geocode({location: geolocationLatLng}, (results, status) => {
+    geocoder.geocode({location: geolocationLatLng}, function(results, status) {
         if (status === "OK") {
             if (results[0]) {
             }

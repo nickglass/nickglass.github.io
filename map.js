@@ -14,13 +14,16 @@ var directionsService;
 var directionsRenderer;
 var pressedIcon;
 
-var currentBrowser = navigator.userAgent,
-    usingIE = currentBrowser.indexOf("MSIE") > -1;
-if (!usingIE) {
-    alert("Please note that this map (specifically clicking on the map markers) is not as effective on Internet Explorer. It is recommended that you use this map in a different browser.");
+/* Sample function that returns boolean in case the browser is Internet Explorer*/
+function isIE() {
+    ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+    return is_ie; 
 }
-else {
-    
+  /* Create an alert to show if the browser is IE or not */
+if (isIE()){
+    alert("Please note that this map (specifically clicking on the map markers) is not as effective on Internet Explorer. It is recommended that you use this map in a different browser.");
 }
 
 function initMap() {

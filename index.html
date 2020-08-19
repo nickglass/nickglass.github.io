@@ -3,25 +3,25 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script src="map.js"></script>
+    <!-- Replace the value of the key parameter with your own API key. -->
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATkzFwKLm-RugAuDrOrd0rjDlVetXYa7A&callback=initMap&libraries=places&v=weekly&location=40.8368,-73.9199&radius=10500" defer>
     </script>
+    <script src="map.js"></script>
     <link rel="stylesheet" type="text/css" href="map.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
-<body onload="initMap()">
+<body>
 
     <ul id="navbar">
         <div class="container-fluid">
             <div class="navbar" id="navbar_logo">
                 <!-- BronxCare Logo -->
-                <li><a href="https://www.bronxcare.org/" target="_blank">
+                <a href="https://www.bronxcare.org/" target="_blank">
                         <img id="logo" class="logo" src="https://assets.caredash.com/image/sDHTpb-m56ZyjXE3_ZC7CGeMdfg=/fit-in/300x300/caredash-serverless-image-handler/caredash/facilities/bronxcare-health-system-profile-dbddd66e.jpg" alt="BronxCare Health System">
                     </a>
-                </li>
             </div>
 
             <div class="navbar" id="find_me">
@@ -29,22 +29,20 @@
                     Use my current location
                 </button>
                 <form class="address_search">
-                    <li><input type="text" placeholder="Enter address here" name="search" id="enterAddressHere"></li>
+                    <input type="text" placeholder="Enter address here" name="search" id="enterAddressHere">
                 </form>
             </div>
 
             <div class="navbar" id="find_a_physician">
-                <li><a id="find_physician" href="https://www.bronxcare.org/physicians/find-a-physician/" target="_blank">
+                <a id="find_physician" href="https://www.bronxcare.org/physicians/find-a-physician/" target="_blank">
                         Find a physician
                     </a>
-                </li>
             </div>
 
             <div class="navbar" id="for_help">
-                <li><a id="for_help_text">
+                <a id="for_help_text">
                         Questions? Call 718-99-BRONX
                     </a>
-                </li>
             </div>
         </div>
     </ul>

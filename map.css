@@ -17,10 +17,12 @@ ul {
     display: inline-block;
     position: relative;
 }
+#navbar_logo {
+    width: 15%;
+}
 #logo {
     margin-left: 20px;
     height: 60px;
-    width: 175px;
 }
 #logo:hover { 
     cursor: pointer;
@@ -48,14 +50,12 @@ form.address_search input[type=text] {
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    width: 150%;
+    width: 125%;
     background:#f1f1f1;
 }
 #find_a_physician {
     display: inline-block;
     padding-bottom: 10px;
-    margin-left: 5%;
-    /* padding-right: 15%; */
 }
 #find_physician:link {
     font-size: 17px;
@@ -71,7 +71,6 @@ form.address_search input[type=text] {
 } 
 #for_help {
     margin-left: 5%;
-    /* padding-left: 5%; */
     display: inline-block;
     padding-top: 10px;
     padding-bottom: 10px;

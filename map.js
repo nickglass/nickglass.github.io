@@ -14,6 +14,15 @@ var directionsService;
 var directionsRenderer;
 var pressedIcon;
 
+var currentBrowser = navigator.userAgent,
+    usingIE = currentBrowser.indexOf("MSIE") > -1;
+if (!usingIE) {
+    alert("Please note that this map (specifically clicking on the map markers) is not as effective on Internet Explorer. It is recommended that you use this map in a different browser.");
+}
+else {
+    
+}
+
 function initMap() {
     // create the simple atlas basemap
     simple_atlas = new google.maps.StyledMapType(

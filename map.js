@@ -1291,9 +1291,10 @@ function validateEmail(email) {
 }
 
 function printDirections(specific) {
-    $(map.location[specific].name + "_step_by_step_directions").addClass("printable");
-    console.log(map.location[specific].name + "_step_by_step_directions");
-    window.print();
+    var content = window.document.getElementById(map.location[specific].name + "_step_by_step_directions");
+    var newWindow = window.open();
+    newWindow.document.write(content.innerHTML);
+    newWindow.print();
 }
 
 //TO-DO: 

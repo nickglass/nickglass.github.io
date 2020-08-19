@@ -588,7 +588,7 @@ h4 {
 .send_directions_options {
     display: none;
     margin-top: 20px;
-    margin-left: 12.5%;
+    text-align: center;
 }
 .send_directions_options button {
     margin-left: 5%;

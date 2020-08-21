@@ -962,11 +962,9 @@ $(document).ready(function() {
                 markerArray[i].setMap(null);
             }
             // show these list items and corresponding markers
-            console.log(blhcLocations);
             for (var i = 0; i < blhcLocations.length; i++) {
                 markerArray[blhcLocations[i]].setMap(map);
                 $("#location_checklist_" + blhcLocations[i]).show();
-                console.log(markerArray[blhcLocations[i]].name);
             }
             $("#hospital_campuses").prop("checked", true);
             $("#ambulatory_practices").prop("checked", true);
@@ -1283,7 +1281,6 @@ $(document).on("keypress", "input", function(e) {
 })
 
 function sendEmail(specific) {
-    // console.log(document.getElementById(map.location[specific].name + "_step_by_step_directions").innerHTML);
     var emailAddress = prompt("Please enter your email address.");
     if (validateEmail(emailAddress)) {
         Email.send({
@@ -1294,7 +1291,6 @@ function sendEmail(specific) {
             From: "blissbx10457@gmail.com",
             Subject: "Step-by-Step Directions from BronxCare's Interactive Map",
             Body: document.getElementById(map.location[specific].name + "_step_by_step_directions").innerHTML,
-            // Body: directionsRenderer.getPanel(map.location[specific].name + "_step_by_step_directions")
         })
         .then(function (message) {
             alert("Email sent successfully.")

@@ -1,6 +1,5 @@
 .navbar {
     display: inline-block;
-    overflow: hidden;
     height: 10%;
     top: 0;
     font-family: Roboto, Arial, sans-serif;
@@ -12,6 +11,7 @@ ul {
     margin: 0;
     padding: 0;
     border-bottom: 2px solid grey;
+    white-space: nowrap;
 }
 .navbar li {
     display: inline-block;
@@ -19,10 +19,12 @@ ul {
 }
 #navbar_logo {
     width: 15%;
+    min-width: 160px;
 }
 #logo {
     margin-left: 20px;
     height: 60px;
+    padding-bottom: 10px;
 }
 #logo:hover { 
     cursor: pointer;
@@ -55,6 +57,7 @@ form.address_search input[type=text] {
 }
 #find_a_physician {
     display: inline-block;
+    margin-left: 20px;
     padding-bottom: 10px;
 }
 #find_physician:link {
@@ -85,7 +88,7 @@ form.address_search input[type=text] {
 
 
 .sidenav {
-    height: 91%; 
+    height: 90%; 
     /* Full-height: remove this if you want "auto" height */
     width: 25%; 
     /* Set the width of the sidebar */
@@ -200,7 +203,7 @@ input[type = checkbox]:hover {
     display: none;
 
     /* for when it IS showing... */
-    height: 91%; 
+    height: 90%; 
     /* Full-height: remove this if you want "auto" height */
     width: 25%; 
     /* Set the width of the sidebar */
@@ -604,7 +607,7 @@ h4 {
 
 /* Set the size of the div element that contains the map */
 #map {
-    height: 91%;
+    height: 90%;
 }
 /* Make sample page fill the window. */ 
 html,

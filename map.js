@@ -23,8 +23,16 @@ function isIE() {
 }
   /* Create an alert to show if the browser is IE or not */
 if (isIE()){
-    alert("Please note that this map (specifically clicking on the map markers) is not as effective on Internet Explorer. It is recommended that you use this map in a different browser.");
+    alert("Please note that this map (specifically each circular map marker) loses some functionality on Internet Explorer. It is therefore recommended that you open this map in a different browser (i.e. Chrome, Safari, Firefox) for the best user experience.");
 }
+
+$(document).ready(function() {
+    if (isIE()) {
+        document.getElementById("for_help_text").innerHTML = "Questions?";
+        document.getElementById("for_help_text").innerHTML += "<br>";
+        document.getElementById("for_help_text").innerHTML += "Call 718-99-BRONX";
+    };
+});
 
 function initMap() {
     // create the simple atlas basemap
@@ -550,11 +558,13 @@ function initMap() {
 
         markerArray[i] = map.marker;
         // Click on marker, and map will zoom in and pan to the marker 
-        google.maps.event.addListener(map.marker, 'click', function () {
-            // get specific location sidebar to appear when a marker is clicked on
-            focusOnLocation(i);
-            openLocationSidebar(i);
-        });
+        if (!isIE()) {
+            google.maps.event.addListener(map.marker, 'click', function () {
+                // get specific location sidebar to appear when a marker is clicked on
+                focusOnLocation(i);
+                openLocationSidebar(i);
+            });
+        }
     };
     
     specificCampuslocations = [55, 56, 57, 58, 59, 60];
@@ -897,6 +907,7 @@ function resetEverything() {
     for (var i = 0; i < map.location.length; i++) {
         markerArray[i].zIndex = map.location.length - i;
         markerArray[i].setMap(map);
+        fromInput[i].value = null;
     }
     for (var i = 0; i < specificCampuslocations.length; i++) {
         markerArray[specificCampuslocations[i]].setMap(null);
@@ -1308,6 +1319,3 @@ function printDirections(specific) {
     newWindow.document.write(content.innerHTML);
     newWindow.print();
 }
-
-//TO-DO: 
-//       provide functionality for the print button

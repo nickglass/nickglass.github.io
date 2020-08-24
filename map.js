@@ -930,10 +930,11 @@ var notMlkLocations = [0, 2, 3, 11, 12, 13];
 var psychLocations = [11, 12, 26];
 var notPsychLocations = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15];
 // The following function are used to show/hide list items and markers when certain dropdown option is selected
+var filter;
 $(document).ready(function() {
     $("#filter_options").change(function() {
-        var value = document.getElementById("filter_options").value;
-        if (value == "all") {
+        filter = document.getElementById("filter_options").value;
+        if (filter == "all") {
             // show everything (both list items and corresponding markers)
             for (var i = 0; i < checklist.length; i++) {
                 $("#" + checklist[i] + "_list").show();
@@ -946,8 +947,16 @@ $(document).ready(function() {
                 markerArray[i].setMap(map);
             }
         }
-        else if (value == "blhc") {
-            // hide these list items and corresponding markersS
+        else if (filter == "blhc") {
+            // offset any residual effects from the other filters
+            for (var i = 0; i < checklist.length; i++) {
+                $("#" + checklist[i] + "_list").show();
+                $("#" + checklist[i]).prop("checked", true);
+            }
+            for (var i = 0; i <= 15; i++) {
+                $("#location_checklist_" + i).show();
+            }
+            // hide these list items and corresponding markers
             for (var i = 0; i < notBlhcLocations.length; i++) {
                 markerArray[notBlhcLocations[i]].setMap(null);
                 $("#location_checklist_" + notBlhcLocations[i]).hide();
@@ -961,17 +970,20 @@ $(document).ready(function() {
             for (var i = 16; i < map.location.length; i++) {
                 markerArray[i].setMap(null);
             }
-            // show these list items and corresponding markers
+            // show the necessary markers
             for (var i = 0; i < blhcLocations.length; i++) {
                 markerArray[blhcLocations[i]].setMap(map);
-                $("#location_checklist_" + blhcLocations[i]).show();
             }
-            $("#hospital_campuses").prop("checked", true);
-            $("#ambulatory_practices").prop("checked", true);
-            $("#covid_testing").prop("checked", true);
-            $("#garden").prop("checked", true);
         }
-        else if (value == "mlk") {
+        else if (filter == "mlk") {
+            // offset any residual effects from the other filters
+            for (var i = 0; i < checklist.length; i++) {
+                $("#" + checklist[i] + "_list").show();
+                $("#" + checklist[i]).prop("checked", true);
+            }
+            for (var i = 0; i <= 15; i++) {
+                $("#location_checklist_" + i).show();
+            }
             // hide these list items and corresponding markers
             for (var i = 0; i < notMlkLocations.length; i++) {
                 markerArray[notMlkLocations[i]].setMap(null);
@@ -986,17 +998,20 @@ $(document).ready(function() {
             for (var i = 16; i < map.location.length; i++) {
                 markerArray[i].setMap(null);
             }
-            // show these list items and corresponding markers
+            // show the necessary markers
             for (var i = 0; i < mlkLocations.length; i++) {
                 markerArray[mlkLocations[i]].setMap(map);
-                $("#location_checklist_" + mlkLocations[i]).show();
             }
-            $("#hospital_campuses").prop("checked", true);
-            $("#ambulatory_practices").prop("checked", true);
-            $("#covid_testing").prop("checked", true);
-            $("#garden").prop("checked", true);
         }
-        else if (value == "psych") {
+        else if (filter == "psych") {
+            // offset any residual effects from the other filters
+            for (var i = 0; i < checklist.length; i++) {
+                $("#" + checklist[i] + "_list").show();
+                $("#" + checklist[i]).prop("checked", true);
+            }
+            for (var i = 0; i <= 15; i++) {
+                $("#location_checklist_" + i).show();
+            }
             // hide these list items and corresponding markers
             $("#hospital_campuses").prop("checked", false);
             $("#hospital_campuses_list").hide();
@@ -1008,17 +1023,13 @@ $(document).ready(function() {
             $("#public_transportation").prop("checked", false);
             $("#pharmacies_list").hide();
             $("#public_transportation_list").hide();
-            for (var i = 16; i < map.location.length; i++) {
+            for (var i = 0; i < map.location.length; i++) {
                 markerArray[i].setMap(null);
             }
-            // show these list items and corresponding markers
+            // show the necessary markers
             for (var i = 0; i < psychLocations.length; i++) {
                 markerArray[psychLocations[i]].setMap(map);
-                $("#location_checklist_" + psychLocations[i]).show();
             }
-            $("#specialCare_center").prop("checked", true);
-            $("#lifeRecovery_center").prop("checked", true);
-            $("#garden").prop("checked", true);
         }
     })
 });
@@ -1027,7 +1038,7 @@ $(document).ready(function() {
 // The following functions are all used to show/hide markers when a category is checked/unchecked
 $(document).ready(function(){
     $('#hospital_campuses').click(function(){
-        if(this.checked == true){
+        if (this.checked == true){
             $("#hospital_campuses_list").show();
             showHospitalCampusesMarkers();
         }
@@ -1158,13 +1169,43 @@ function hidePublicTransportationMarkers() {
 }
 
 function showHospitalCampusesMarkers() {
-    for (var i = 0; i <= 1; i++) {
-        markerArray[i].setMap(map);
+    if (filter == "all") {
+        for (var i = 0; i <= 1; i++) {
+            markerArray[i].setMap(map);
+        }
+    }
+    else if (filter == "blhc") {
+        markerArray[0].setMap(map);
+    }
+    else if (filter == "mlk") {
+        markerArray[1].setMap(map);
+    }
+    else if (filter == "psych") {
+        for (var i = 0; i <= 1; i++) {
+            markerArray[i].setMap(map);
+        }
     }
 }
 function showAmbulatoryPracticesMarkers() {
-    for (var i = 2; i <= 10; i++) {
-        markerArray[i].setMap(map);
+    if (filter == "all") {
+        for (var i = 2; i <= 10; i++) {
+            markerArray[i].setMap(map);
+        }
+    }
+    else if (filter == "blhc") {
+        for (var i = 2; i <= 4; i++) {
+            markerArray[i].setMap(map);
+        }
+    }
+    else if (filter == "mlk") {
+        for (var i = 4; i <= 10; i++) {
+            markerArray[i].setMap(map);
+        }
+    }
+    else if (filter == "psych") {
+        for (var i = 2; i <= 10; i++) {
+            markerArray[i].setMap(map);
+        }
     }
 }
 function showSpecialCareCenterMarkers() {
@@ -1174,8 +1215,24 @@ function showLifeRecoveryCenterMarkers() {
     markerArray[12].setMap(map);
 }
 function showCovidTestingMarkers() {
-    for (var i = 13; i <= 15; i++) {
-        markerArray[i].setMap(map);
+    if (filter == "all") {
+        console.log("hi");
+        for (var i = 13; i <= 15; i++) {
+            markerArray[i].setMap(map);
+        }
+    }
+    else if (filter == "blhc") {
+        markerArray[13].setMap(map);
+    }
+    else if (filter == "mlk") {
+        for (var i = 14; i <= 15; i++) {
+            markerArray[i].setMap(map);
+        }
+    }
+    else if (filter == "psych") {
+        for (var i = 13; i <= 15; i++) {
+            markerArray[i].setMap(map);
+        }
     }
 }
 function showPharmaciesMarkers() {

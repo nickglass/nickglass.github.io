@@ -998,13 +998,12 @@ $(document).ready(function() {
         }
         else if (value == "psych") {
             // hide these list items and corresponding markers
-            for (var i = 0; i < notPsychLocations.length; i++) {
-                markerArray[notPsychLocations[i]].setMap(null);
-                $("#location_checklist_" + notPsychLocations[i]).hide();
-            }
             $("#hospital_campuses").prop("checked", false);
+            $("#hospital_campuses_list").hide();
             $("#ambulatory_practices").prop("checked", false);
+            $("#ambulatory_practices_list").hide();
             $("#covid_testing").prop("checked", false);
+            $("#covid_testing_list").hide();
             $("#pharmacies").prop("checked", false);
             $("#public_transportation").prop("checked", false);
             $("#pharmacies_list").hide();

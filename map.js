@@ -631,7 +631,6 @@ function initMap() {
 
     directionsService = new google.maps.DirectionsService();
     directionsRenderer = new google.maps.DirectionsRenderer();
-    directionsRenderer.setMap(map);
 
 }
 
@@ -648,6 +647,7 @@ function calculateAndDisplayRoute(locationNumber) {
         },
         function(response, status) {
             if (status === "OK") {
+                directionsRenderer.setMap(map);
                 directionsRenderer.setPanel(document.getElementById(map.location[locationNumber].name + "_step_by_step_directions"));
                 directionsRenderer.setDirections(response);
                 $("#" + map.location[locationNumber].name + "_send_directions_options").show();

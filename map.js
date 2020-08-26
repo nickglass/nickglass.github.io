@@ -923,8 +923,8 @@ function resetEverything() {
 }
 
 // indices of the locations within (or not within) each of the three "filter by" categories
-var blhcLocations = [0, 2, 3, 4, 13, 26];
-var notBlhcLocations = [1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15];
+var bchcLocations = [0, 2, 3, 4, 13, 26];
+var notBchcLocations = [1, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15];
 var mlkLocations = [1, 4, 5, 6, 7, 8, 9, 10, 14, 15, 26];
 var notMlkLocations = [0, 2, 3, 11, 12, 13];
 var psychLocations = [11, 12, 26];
@@ -947,7 +947,7 @@ $(document).ready(function() {
                 markerArray[i].setMap(map);
             }
         }
-        else if (filter == "blhc") {
+        else if (filter == "bchc") {
             // offset any residual effects from the other filters
             for (var i = 0; i < checklist.length; i++) {
                 $("#" + checklist[i] + "_list").show();
@@ -957,9 +957,9 @@ $(document).ready(function() {
                 $("#location_checklist_" + i).show();
             }
             // hide these list items and corresponding markers
-            for (var i = 0; i < notBlhcLocations.length; i++) {
-                markerArray[notBlhcLocations[i]].setMap(null);
-                $("#location_checklist_" + notBlhcLocations[i]).hide();
+            for (var i = 0; i < notBchcLocations.length; i++) {
+                markerArray[notBchcLocations[i]].setMap(null);
+                $("#location_checklist_" + notBchcLocations[i]).hide();
             }
             $("#specialCare_center").prop("checked", false);
             $("#lifeRecovery_center").prop("checked", false);
@@ -971,8 +971,8 @@ $(document).ready(function() {
                 markerArray[i].setMap(null);
             }
             // show the necessary markers
-            for (var i = 0; i < blhcLocations.length; i++) {
-                markerArray[blhcLocations[i]].setMap(map);
+            for (var i = 0; i < bchcLocations.length; i++) {
+                markerArray[bchcLocations[i]].setMap(map);
             }
         }
         else if (filter == "mlk") {
@@ -1174,7 +1174,7 @@ function showHospitalCampusesMarkers() {
             markerArray[i].setMap(map);
         }
     }
-    else if (filter == "blhc") {
+    else if (filter == "bchc") {
         markerArray[0].setMap(map);
     }
     else if (filter == "mlk") {
@@ -1192,7 +1192,7 @@ function showAmbulatoryPracticesMarkers() {
             markerArray[i].setMap(map);
         }
     }
-    else if (filter == "blhc") {
+    else if (filter == "bchc") {
         for (var i = 2; i <= 4; i++) {
             markerArray[i].setMap(map);
         }
@@ -1221,7 +1221,7 @@ function showCovidTestingMarkers() {
             markerArray[i].setMap(map);
         }
     }
-    else if (filter == "blhc") {
+    else if (filter == "bchc") {
         markerArray[13].setMap(map);
     }
     else if (filter == "mlk") {
